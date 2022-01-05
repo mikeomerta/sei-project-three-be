@@ -20,35 +20,10 @@ async function userShow (req, res, next) {
   }
 }
 
-async function userCreate(req, res, next) {
-  try {
-    const addUser = await Users.create(req.body)
-    return res.status(200).json(addUser)
-  } catch (err) {
-    next(err)
-  }
-}
-
-async function userDelete (req, res, next) {
-  const { userId } = req.params
-  try {
-    const userToDelete = await Users.findById(userId)
-    if (!userToDelete) {
-      throw new NotFound()
-    }
-    await userToDelete.remove()
-    return res.sendStatus(204)
-  } catch (err) {
-    next(err)
-  }
-}
-
 
 export default {
   index: usersIndex,
   show: userShow,
-  create: userCreate,
-  delete: userDelete,
 }
 
 // User schema
