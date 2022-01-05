@@ -9,7 +9,4 @@
 * `npm install` - Install dependencies
 * `npm run dev` - Run the app in development mode
 
-Harry Murphy
-Holly Partridge
-David Harvey
-Holly
+
