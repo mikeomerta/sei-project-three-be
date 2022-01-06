@@ -8,7 +8,7 @@ import jwt from 'jsonwebtoken'
 async function register (req, res, next) {
   try {
     const user = await Users.create(req.body)
-    return res.status(200).json({ mesage: `Registration successsful, welcome ${user.username}!`, user })
+    return res.status(201).json({ mesage: `Registration successsful, welcome ${user.username}!`, user })
   } catch (err) {
     next(err)
   }
@@ -32,25 +32,6 @@ async function login(req, res, next) {
   }
 }
 
-// async function userEdit(req, res, next) {
-//   const { userId } = req.params
-//   try {
-//     const editUser = await Users.findById(userId)
-//     if (!editUser) {
-//       throw new NotFound()
-//     }
-//     console.log('USER ID', userId)
-//     // if (!editUser.addedBy.equals(req.currentUser)) {
-//     //   throw new Unauthorized()
-//     // }
-//     Object.assign(editUser, req.body)
-//     console.log('REQ', editUser)
-//     await editUser.save()
-//     return res.status(202).json({ message: `User updated ${editUser}` })
-//   } catch (err) {
-//     next(err)
-//   }
-// }
 
 async function userDelete (req, res, next) {
   const { userId } = req.params
@@ -68,7 +49,6 @@ async function userDelete (req, res, next) {
 
 export default {
   register,
-  // edit: userEdit,
   login,
   delete: userDelete,
 }

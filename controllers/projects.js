@@ -1,4 +1,4 @@
-import { NotFound } from '../lib/errors.js'
+import { NotFound, Unauthorized } from '../lib/errors.js'
 import Projects from '../models/project-models.js'
 
 
@@ -21,6 +21,7 @@ async function projectShow (req, res, next) {
 }
 
 async function projectCreate (req, res, next) {
+  req.body.addedBy = req.currentUser
   try {
     const createdProject = await Projects.create(req.body)
     return res.status(200).json(createdProject)
@@ -35,6 +36,9 @@ async function projectDelete (req, res, next) {
     const projectToDelete = await Projects.findById(projectId)
     if (!projectToDelete) {
       throw new NotFound()
+    }
+    if (!projectToDelete.addedBy.equals(req.currentUser)){
+      throw new Unauthorized()
     }
     await projectToDelete.remove()
     return res.sendStatus(204)
