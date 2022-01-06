@@ -1,49 +1,49 @@
+import { NotFound, Unauthorized } from '../lib/errors.js'
 import Projects from '../models/project-models.js'
 
 
 async function projectsIndex (_req, res) {
-  const projects = await Projects.find()
+  const projects = await Projects.find().populate('addedBy')
   return res.status(200).json(projects)
 }
 
-async function projectShow (req, res) {
+async function projectShow (req, res, next) {
   const { projectId } = req.params
   try {
-    const projectToFind = await Projects.findById(projectId)
+    const projectToFind = await Projects.findById(projectId).populate('addedBy')
     if (!projectToFind) {
-      console.log('🤖 Nothing Found')
-      throw new Error()
+      throw new NotFound()
     }
     return res.status(200).json(projectToFind)
   } catch (err) {
-    console.log('Error', err)
-    return res.status(404).json({ message: 'Not Found' })
+    next(err)
   }
 }
 
-async function projectCreate (req, res) {
+async function projectCreate (req, res, next) {
+  req.body.addedBy = req.currentUser
   try {
     const createdProject = await Projects.create(req.body)
     return res.status(200).json(createdProject)
   } catch (err) {
-    console.log('Not created', err)
-    return res.status(422).json(err)
+    next(err)
   }
 }
 
-async function projectDelete (req, res) {
+async function projectDelete (req, res, next) {
   const { projectId } = req.params
   try {
     const projectToDelete = await Projects.findById(projectId)
     if (!projectToDelete) {
-      console.log('🤖 Nothing Found')
-      throw new Error()
+      throw new NotFound()
+    }
+    if (!projectToDelete.addedBy.equals(req.currentUser)){
+      throw new Unauthorized()
     }
     await projectToDelete.remove()
     return res.sendStatus(204)
   } catch (err) {
-    console.log('Error', err)
-    return res.status(404).json({ message: 'Not Found' })
+    next(err)
   }
 }
 

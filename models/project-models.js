@@ -8,6 +8,7 @@ const projectSchema = new mongoose.Schema({
   primaryImage: { type: String, required: true },
   secondaryImage: [{ type: String }],
   categoryTag: [{ type: String }],
+  addedBy: { type: mongoose.Schema.ObjectId, ref: 'User', required: true },
 })
 
 projectSchema.plugin(mongooseUniqueValidator)
