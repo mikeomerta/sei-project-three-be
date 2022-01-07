@@ -30,6 +30,28 @@ async function projectCreate (req, res, next) {
   }
 }
 
+async function projectEdit (req, res, next) {
+  req.body.addedBy = req.currentUser
+  const { projectId } = req.params
+  try {
+    const projectToEdit = await Projects.findById(projectId)
+    if (!projectToEdit) {
+      throw new NotFound()
+    }
+    if (!projectToEdit.addedBy.equals(req.currentUser)) {
+      throw new Unauthorized()
+    }
+    Object.assign(projectToEdit, req.body)
+    await projectToEdit.save()
+    return res.status(202).json({ message: `Project updated ${projectToEdit}`})
+  } catch (err) {
+    if (err.name === 'CastError' || err.name === 'Error') {
+      return res.status(404).json({ message: 'Not Found' })
+    }
+    next(err)
+  }
+}
+
 async function projectDelete (req, res, next) {
   const { projectId } = req.params
   try {
@@ -51,6 +73,7 @@ export default {
   index: projectsIndex,
   show: projectShow,
   create: projectCreate,
+  edit: projectEdit,
   delete: projectDelete,
 }
 

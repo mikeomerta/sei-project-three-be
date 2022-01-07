@@ -14,6 +14,7 @@ router.route('/projects')
 
 router.route('/projects/:projectId')
   .get(projects.show)
+  .put(secureRoute, projects.edit)
   .delete(secureRoute, projects.delete)
 
 // Project COMMENTS routes
