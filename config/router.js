@@ -20,6 +20,9 @@ router.route('/projects/:projectId')
 router.route('/projects/:projectId/comments')
   .post(secureRoute, comments.add)
 
+router.route('/projects/:projectId/comments/:commentId')
+  .delete(secureRoute, comments.delete)
+
 // USER routes
 // user auth routes
 router.route('/register')
@@ -29,15 +32,15 @@ router.route('/login')
   .post(userAuth.login)
 
 router.route('/users/:userId')
-  .delete(userAuth.delete)
+  .delete(secureRoute, userAuth.delete)
+  .put(secureRoute, userAuth.edit)
 
 // user non-auth routes, such as show, index
 router.route('/users')
   .get(users.index)
 
 router.route('/users/:userId')
-  .get(users.show)
-
+  .get(secureRoute, users.show)
 
 
 export default router

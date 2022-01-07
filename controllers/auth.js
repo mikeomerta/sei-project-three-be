@@ -32,6 +32,26 @@ async function login(req, res, next) {
   }
 }
 
+async function userEdit(req, res, next) {
+  const { userId } = req.params
+  try {
+    const editUser = await Users.findById(userId)
+    if (!editUser) {
+      throw new NotFound()
+    }
+    if (!editUser._id.equals(req.currentUser)) {
+      throw new Unauthorized()
+    }
+    Object.assign(editUser, req.body)
+    await editUser.save()
+    return res.status(202).json({ message: `Profile updated ${editUser}` })
+  } catch (err) {
+    if (err.name === 'CastError' || err.name === 'Error') {
+      return res.status(404).json({ message: 'Not Found' })
+    }
+    next(err)
+  }
+}
 
 async function userDelete (req, res, next) {
   const { userId } = req.params
@@ -39,6 +59,9 @@ async function userDelete (req, res, next) {
     const userToDelete = await Users.findById(userId)
     if (!userToDelete) {
       throw new NotFound()
+    }
+    if (!userToDelete._id.equals(req.currentUser)) {
+      throw new Unauthorized()
     }
     await userToDelete.remove()
     return res.sendStatus(204)
@@ -50,5 +73,6 @@ async function userDelete (req, res, next) {
 export default {
   register,
   login,
+  edit: userEdit,
   delete: userDelete,
 }
