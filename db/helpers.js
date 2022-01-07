@@ -2,9 +2,10 @@ import mongoose from 'mongoose'
 import { dbURI } from '../config/environment.js'
 
 export function connectToDB() {
-  mongoose.connect(dbURI, {
+  return mongoose.connect(dbURI, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
+    family: 4,
   })
 }
 export function truncateDB(){
