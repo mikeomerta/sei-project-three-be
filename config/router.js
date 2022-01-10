@@ -22,6 +22,7 @@ router.route('/projects/:projectId/comments')
   .post(secureRoute, comments.add)
 
 router.route('/projects/:projectId/comments/:commentId')
+  // .get(secureRoute, comments.show)
   .delete(secureRoute, comments.delete)
 
 // USER routes

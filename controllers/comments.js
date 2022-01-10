@@ -19,6 +19,23 @@ async function projectCommentAdd(req, res, next) {
   }
 }
 
+// async function getSingleComment(req, res, next) {
+//   const { projectId, commentId } = req.params
+//   try {
+//     const getTheProject = await Projects.findById(projectId)
+//     if (!getTheProject) {
+//       throw new NotFound()
+//     }
+//     const getTheComment = await getTheProject.comments.id(commentId).populate('addedBy')
+//     if (!getTheComment) {
+//       throw new NotFound()
+//     }
+//     return res.status(201).json(getTheComment)
+//   } catch (err) {
+//     next(err)
+//   }
+// }
+
 async function projectCommentDelete(req, res, next) {
   const { projectId, commentId } = req.params
   try {
@@ -43,5 +60,6 @@ async function projectCommentDelete(req, res, next) {
 
 export default {
   add: projectCommentAdd,
+  // show: getSingleComment,
   delete: projectCommentDelete,
 }
