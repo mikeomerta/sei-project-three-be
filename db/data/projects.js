@@ -6,6 +6,9 @@ export default [
     primaryImage: 'https://images1.the-dots.com/4746443/free-workstation-person-holding-smartphone-mockup.png?p=projectImageFullJpg',
     secondaryImage: ['https://images1.the-dots.com/4746438/free-workstat…ding-smartphone-mockup3.png?p=projectImageFullJpg', 'https://images1.the-dots.com/4746437/free-workstat…ding-smartphone-mockup4.png?p=projectImageFullJpg'],
     categoryTag: ['Gaming', 'App'],
+    comments: [{
+      liked: true,
+    }],
   },
   {
     projectTitle: 'DarlingMe | Shea Butters',
@@ -14,6 +17,9 @@ export default [
     primaryImage: 'https://images1.the-dots.com/4749595/4b-darlingme1894.jpg?p=projectImageFullJpg',
     secondaryImage: ['https://images1.the-dots.com/4749596/1-sundrenched…ricotrose-darlingme3333.jpg?p=projectImageFullJpg', 'https://images1.the-dots.com/4749598/02-tonkatobaccoflower.jpg?p=projectImageFullJpg' ],
     categoryTag: ['Health', 'Beauty'],
+    comments: [{
+      liked: true,
+    }],
   },
   {
     projectTitle: 'Climate in Colour',
@@ -22,6 +28,9 @@ export default [
     primaryImage: 'https://images1.the-dots.com/4749089/cic-1.jpg?p=projectImageFullJpg',
     secondaryImage: ['https://images1.the-dots.com/4749102/cic-2.jpg?p=projectImageFullJpg', 'https://images1.the-dots.com/4749119/cic-4.jpg?p=projectImageFullJpg' ],
     categoryTag: ['Climate', 'Art'],
+    comments: [{
+      liked: true,
+    }],
   },
   {
     projectTitle: 'Boomin',
