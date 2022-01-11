@@ -152,11 +152,11 @@ export default [
     categoryTag: ['Coding', 'Design'],
   },
   {
-    projectTitle: '11 JavaScript frameworks for creating graphics',
-    primaryDescription: 'Javascript frameworks to help you produce perfect animations, illustrations and data viz.',
-    secondaryDescription: 'Javascript frameworks can fulfil a range of functions. Here, were going to look at some libraries that will help you create stunning graphics.', 
-    primaryImage: 'https://cdn.mos.cms.futurecdn.net/wiE3KjPXvfqGBbnFiPZ2j8-1024-80.jpg.webp',
-    secondaryImage: ['https://cdn.mos.cms.futurecdn.net/tLPcJVBYEwqs8qQUCSFvBm-970-80.jpg.webp', 'https://cdn.mos.cms.futurecdn.net/zB2qGwtoRXzbDUWfLa2cxk-970-80.jpg.webp'],
-    categoryTag: ['Coding', 'Design'],
+    projectTitle: 'JavaScript WTF!?',
+    primaryDescription: 'JavaScript WTF!? is a leisure coding-class for those who want an introduction and prefer humans to online-classes. Using real-life examples and props, we want you to have fun while getting smarter.',
+    secondaryDescription: 'In 4 weekly evening classes in the heart of Amsterdam, we start from learning how the Internet work, cover how the Browser paints a picture on your screen and dig into the role of JavaScript in the Internet. Each class is split into a theoretical and a practical part, so that we get to practice the concepts of JavaScript with e.g. writing functions on how to order a beer at a Dutch bar. This course is targeted at Creatives who finally want to understand what all this coding hype is about.', 
+    primaryImage: 'https://images1.the-dots.com/2119048/share-pic.jpeg?p=projectImageFullJpg',
+    secondaryImage: ['https://images1.the-dots.com/2119049/screen-shot-2019-05-05-at-10-21-42.png?p=projectImageFullJpg','https://images1.the-dots.com/2119050/screen-shot-2019-05-05-at-10-22-25.png?p=projectImageFullJpg', 'https://images1.the-dots.com/2119055/screen-shot-2019-05-05-at-10-21-21.png?p=projectImageFullJpg'],
+    categoryTag: ['JavaScript', 'Design'],
   }
 ]
