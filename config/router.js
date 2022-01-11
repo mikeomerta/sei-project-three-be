@@ -17,12 +17,15 @@ router.route('/projects/:projectId')
   .put(secureRoute, projects.edit)
   .delete(secureRoute, projects.delete)
 
+// favourite
+router.route('/projects/:projectId/favourite')
+  .post(secureRoute, comments.favourite)
+
 // Project COMMENTS routes
 router.route('/projects/:projectId/comments')
   .post(secureRoute, comments.add)
 
 router.route('/projects/:projectId/comments/:commentId')
-  // .get(secureRoute, comments.show)
   .delete(secureRoute, comments.delete)
 
 // USER routes

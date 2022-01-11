@@ -1,6 +1,7 @@
 import Projects from '../models/project-models.js'
 import { NotFound, Unauthorized } from '../lib/errors.js'
 
+
 async function projectCommentAdd(req, res, next) {
   req.body.addedBy = req.currentUser
   console.log('REQ', req.body)
@@ -19,6 +20,26 @@ async function projectCommentAdd(req, res, next) {
   }
 }
 
+async function projectFavourite(req, res, next) {
+  req.body.addedBy = req.currentUser
+  const { projectId } = req.params
+  try {
+    const getProject = await Projects.findById(projectId)
+    if (!getProject) {
+      throw new NotFound()
+    }
+    const userId = req.currentUser._id
+    if (getProject.favouritedBy.includes(userId)) {
+      getProject.favouritedBy.remove(userId)
+    } else {
+      getProject.favouritedBy.push(userId)
+    }
+    await getProject.save()
+    return res.status(202).json(getProject)
+  } catch (err) {
+    next(err)
+  }
+}
 // async function getSingleComment(req, res, next) {
 //   const { projectId, commentId } = req.params
 //   try {
@@ -60,6 +81,6 @@ async function projectCommentDelete(req, res, next) {
 
 export default {
   add: projectCommentAdd,
-  // show: getSingleComment,
+  favourite: projectFavourite,
   delete: projectCommentDelete,
 }

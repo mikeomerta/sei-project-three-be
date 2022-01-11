@@ -4,7 +4,6 @@ import mongooseUniqueValidator from 'mongoose-unique-validator'
 
 const projectCommentSchema = new mongoose.Schema({
   text: { type: String, required: true, maxLength: 300 },
-  liked: { type: Boolean },
   microPay: { type: Number, min: 1 },
   addedBy: { type: mongoose.Schema.ObjectId, ref: 'User', required: true },
 } , {
@@ -19,6 +18,7 @@ const projectSchema = new mongoose.Schema({
   secondaryImage: [{ type: String }],
   categoryTag: [{ type: String }],
   comments: [projectCommentSchema],
+  favouritedBy: [{ type: mongoose.Schema.ObjectId, ref: 'User' }],
   addedBy: { type: mongoose.Schema.ObjectId, ref: 'User', required: true },
 }, {
   timestamps: true,
