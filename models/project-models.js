@@ -5,7 +5,7 @@ import mongooseUniqueValidator from 'mongoose-unique-validator'
 const projectCommentSchema = new mongoose.Schema({
   text: { type: String, required: true, maxLength: 300 },
   liked: { type: Boolean },
-  microPay: { type: Number, required: true, min: 1 },
+  microPay: { type: Number, min: 1 },
   addedBy: { type: mongoose.Schema.ObjectId, ref: 'User', required: true },
 } , {
   timestamps: true,

@@ -3,14 +3,14 @@ import Projects from '../models/project-models.js'
 
 
 async function projectsIndex (_req, res) {
-  const projects = await Projects.find().populate('addedBy')
+  const projects = await Projects.find().populate('addedBy').populate('comments.addedBy')
   return res.status(200).json(projects)
 }
 
 async function projectShow (req, res, next) {
   const { projectId } = req.params
   try {
-    const projectToFind = await Projects.findById(projectId).populate('addedBy')
+    const projectToFind = await Projects.findById(projectId).populate('addedBy').populate('comments.addedBy')
     if (!projectToFind) {
       throw new NotFound()
     }
@@ -43,7 +43,7 @@ async function projectEdit (req, res, next) {
     }
     Object.assign(projectToEdit, req.body)
     await projectToEdit.save()
-    return res.status(202).json({ message: `Project updated ${projectToEdit}`})
+    return res.status(202).json({ message: `Project updated ${projectToEdit}` })
   } catch (err) {
     if (err.name === 'CastError' || err.name === 'Error') {
       return res.status(404).json({ message: 'Not Found' })
