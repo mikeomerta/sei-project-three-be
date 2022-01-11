@@ -18,6 +18,7 @@ const projectSchema = new mongoose.Schema({
   secondaryImage: [{ type: String }],
   categoryTag: [{ type: String }],
   comments: [projectCommentSchema],
+  loved: { type: Boolean },
   favouritedBy: [{ type: mongoose.Schema.ObjectId, ref: 'User' }],
   addedBy: { type: mongoose.Schema.ObjectId, ref: 'User', required: true },
 }, {

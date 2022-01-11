@@ -59,6 +59,7 @@ export default [
     primaryImage: 'https://creativereview.imgix.net/content/uploads/2021/11/Photo-by-Theo-Coulombe-scaled.jpg?auto=compress,format&q=60&w=2560&h=',
     secondaryImage: ['https://creativereview.imgix.net/content/uploads/2021/11/16427580739_635174e7f2_o.jpg?auto=compress,format&q=60&w=1200&h='],
     categoryTag: ['Art'],
+    loved: true,
   },
   {
     projectTitle: 'THE CULTURAL INFLUENCE OF SPIKE LEE',
@@ -67,6 +68,7 @@ export default [
     primaryImage: 'https://creativereview.imgix.net/content/uploads/2021/11/banner-Universal-SPIKE_PR_Uncompressed_test_1_UpRes_24.5in.jpg?auto=compress,format&q=60&w=1920&h=',
     secondaryImage: ['https://creativereview.imgix.net/content/uploads/2021/11/Spike-01.jpg?auto=compress,format&q=60&w=1200&h=', 'https://creativereview.imgix.net/content/uploads/2021/11/Spike-Int-20.jpg?auto=compress,format&q=60&w=1200&h='],
     categoryTag: ['Art', 'Music'],
+    loved: true,
   },
   {
     projectTitle: 'BUILDING THE VISUAL WORLD OF ADELE',
@@ -87,6 +89,7 @@ export default [
     secondaryDescription: 'Next year, were expecting to see more interiors curated to channel a sense of comfort and personality. Weve had so much time to turn inward, and now we have the space to design every aspect of our lives from a more intentional place. Given that 2022 is the Year of the Tiger, we expect to be bolder, zestier, more rebellious, and regal than ever before.',
     primaryImage: 'https://media.architecturaldigest.com/photos/61898259e1cd0dfe3a7240ca/1:1/w_960,c_limit/211102-EP-SusanAlexandra-044-HiRes.jpg',
     categoryTag: ['Design'],
+    loved: true,
   },
   {
     projectTitle: 'An Art-Centric Couple Transformed Their Circa-1980 Miami Apartment by Hand',
@@ -95,6 +98,7 @@ export default [
     primaryImage: 'https://media.architecturaldigest.com/photos/61cf1c373811d41dfcd10ff6/master/w_1600,c_limit/Photo%20Jul%2017,%204%2031%2012%20PM.jpg',
     secondaryImage: ['https://media.architecturaldigest.com/photos/61cf1e1c5049f7f2d6630750/master/w_1600,c_limit/IMG_4293.jpeg', 'https://media.architecturaldigest.com/photos/61cf1f95e1ea3047a50747f4/master/w_1600,c_limit/Photo%20Jul%2016,%207%2038%2014%20PM%20(4).jpg', 'https://media.architecturaldigest.com/photos/61cf20603811d41dfcd11018/master/w_1600,c_limit/Photo%20Jul%2017,%204%2042%2006%20PM.jpg'],
     categoryTag: ['Culture', 'Design'],
+    loved: true,
   },
   {
     projectTitle: 'Typographic hierarchy: what is it and how can you use it?',
@@ -111,6 +115,7 @@ export default [
     primaryImage: 'https://media.architecturaldigest.com/photos/61cf1c373811d41dfcd10ff6/master/w_1600,c_limit/Photo%20Jul%2017,%204%2031%2012%20PM.jpg',
     secondaryImage: ['https://cdn.mos.cms.futurecdn.net/o4rPPdJyg8warNH3eRv9dZ-970-80.png.webp', 'https://cdn.mos.cms.futurecdn.net/7606e5656ca298d109e8d9be29a2f374-970-80.jpg.webp'],
     categoryTag: ['Art', 'Design'],
+    loved: true,
   },
   {
     projectTitle: '6 UX lessons you can learn in the toilet',
@@ -119,6 +124,7 @@ export default [
     primaryImage: 'https://cdn.mos.cms.futurecdn.net/ruiPr9D5utv4JsjRTfvVjk-1024-80.jpg.webp',
     secondaryImage: ['https://cdn.mos.cms.futurecdn.net/CwNg4rfN3evayA57ZqTHRJ-970-80.jpg.webp', 'https://cdn.mos.cms.futurecdn.net/hC2j8TBLTixGRisorZ5xJm-970-80.jpg.webp'],
     categoryTag: ['UX', 'Design'],
+    loved: true,
   },
   {
     projectTitle: '18 hot new HTML tags to use today',
