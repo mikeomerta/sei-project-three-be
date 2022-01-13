@@ -1,10 +1,7 @@
 import dotenv from 'dotenv'
-
 dotenv.config()
 
-export const dbURI = process.env.MONGODB_URI
-
-export const port = 4000
-
-export const secret = 'Aepop Bepop Cepop Depop'
+export const dbURI = process.env.DB_URI
+export const port = process.env.PORT || 4000
+export const secret =  process.env.SECRET || 'Aepop Bepop Cepop Depop'
 
